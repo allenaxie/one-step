@@ -4,6 +4,15 @@ body.light-theme {
         color: #000 !important;
     }
 
+    .icon-button {
+        transition: .15s ease-in-out;
+
+        &:hover {
+            border-bottom: 1px solid rgb(0, 0, 0);
+            transform: scale(1.25);
+        }
+    }
+
     .mat-icon {
         svg {
             g {
