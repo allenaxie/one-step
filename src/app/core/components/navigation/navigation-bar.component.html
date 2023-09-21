@@ -1,4 +1,13 @@
 <mat-toolbar>
-  <span>One Step</span>
-  <button class="mx-8" (click)="onToggleTheme()">Toggle theme</button>
+  <span>Sun Wu Kong 七十二变</span>
+  <button class="mx-8" (click)="onToggleTheme()">
+    <ng-container>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Dark mode icon"
+        [svgIcon]="theme || 'light-theme'"
+      ></mat-icon>
+    </ng-container>
+  </button>
+  <mat-icon svgIcon="monkey-king-serious-sad"> </mat-icon>
 </mat-toolbar>

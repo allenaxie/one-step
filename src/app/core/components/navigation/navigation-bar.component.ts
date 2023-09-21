@@ -1,16 +1,29 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ThemeService } from 'src/app/modules/shared/theme.service';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
+import { Theme, ThemeService } from 'src/app/modules/shared/theme.service';
 
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss'],
-  // encapsulation: ViewEncapsulation.None,
 })
 export class NavigationBarComponent implements OnInit {
-  constructor(private themeService: ThemeService) {}
+  theme: Theme | null = Theme.light;
+  constructor(
+    private themeService: ThemeService,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.themeService.setupTheme();
+    this.themeService.theme.subscribe((theme) => {
+      this.theme = theme;
+    });
+  }
 
   onToggleTheme() {
     this.themeService.toggleTheme();

@@ -35,13 +35,13 @@ export class ThemeService {
       this.theme.next(Theme.dark);
       bodyClassList.add(Theme.dark);
       bodyClassList.remove(Theme.light);
+      localStorage.setItem('theme', Theme.dark);
     } else {
       // set to light theme
       this.theme.next(Theme.light);
       bodyClassList.add(Theme.light);
       bodyClassList.remove(Theme.dark);
+      localStorage.setItem('theme', Theme.light);
     }
-    // save value to local storage
-    localStorage.setItem('theme', theme);
   }
 }

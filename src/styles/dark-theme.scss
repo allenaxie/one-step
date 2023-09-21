@@ -1,6 +1,14 @@
 body.dark-theme {
     .mat-toolbar {
-        background-color: #000 !important;
+        background-color: rgb(34, 33, 33) !important;
         color: #fff !important;
+    }
+
+    .mat-icon {
+        svg {
+            g {
+                fill: #fff !important;
+            }
+        }
     }
 }

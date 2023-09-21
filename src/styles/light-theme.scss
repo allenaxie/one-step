@@ -3,4 +3,12 @@ body.light-theme {
         background-color: #fff !important;
         color: #000 !important;
     }
+
+    .mat-icon {
+        svg {
+            g {
+                fill: #000 !important;
+            }
+        }
+    }
 }
