@@ -1,21 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Theme, ThemeService } from './modules/shared/theme.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Theme, ThemeService } from '../config/theme.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ICONS } from 'src/config/icons';
+import { BehaviorSubject, Subject, Subscription, takeUntil } from 'rxjs';
+import { NavigationService } from 'src/config/navigation.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+  isNavbarVisible: boolean = false;
+  navbarSub: Subscription;
+
   constructor(
-    private themeService: ThemeService,
     private iconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private navigationService: NavigationService
   ) {
     this.setupIcons();
+    this.navbarSub = this.navigationService.isNavigationBarVisible.subscribe(
+      (value) => {
+        this.isNavbarVisible = value;
+      }
+    );
   }
 
   ngOnInit(): void {}
@@ -29,5 +39,9 @@ export class AppComponent implements OnInit {
         );
       }
     }
+  }
+
+  ngOnDestroy(): void {
+    this.navbarSub.unsubscribe();
   }
 }

@@ -1,5 +1,5 @@
 .header {
-    background-image: url('../../../../assets/images/sun-wu-kong-1.jpeg');
+    background-image: url('../../../assets/images/sun-wu-kong-1.jpeg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -13,8 +13,8 @@
         bottom: 0;
         left: 0;
         background: radial-gradient(ellipse at center top,
-         rgba(124, 124, 124, 0.6) 0%, 
-         rgba(28, 28, 28, 0.801) 40%,
+         rgba(124, 124, 124, 0.412) 0%, 
+         rgba(16, 16, 16, 0.819) 40%,
           rgba(23, 23, 23, 0.943) 100%);
     }
 }

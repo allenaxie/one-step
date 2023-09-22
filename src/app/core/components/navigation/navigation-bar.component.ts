@@ -4,7 +4,8 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { Theme, ThemeService } from 'src/app/modules/shared/theme.service';
+import { BehaviorSubject } from 'rxjs';
+import { Theme, ThemeService } from 'src/config/theme.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -12,7 +13,8 @@ import { Theme, ThemeService } from 'src/app/modules/shared/theme.service';
   styleUrls: ['./navigation-bar.component.scss'],
 })
 export class NavigationBarComponent implements OnInit {
-  theme: Theme | null = Theme.light;
+  theme: Theme | null = Theme.dark;
+
   constructor(
     private themeService: ThemeService,
     private cdRef: ChangeDetectorRef

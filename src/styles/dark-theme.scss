@@ -1,6 +1,9 @@
 body.dark-theme {
     .mat-toolbar {
-        background-color: rgb(34, 33, 33) !important;
+        // background-color: rgb(34, 33, 33) !important;
+        // background-color: transparent !important;
+        background-color: rgba(0,0,0,0) !important;
+        background: none;
         color: #fff !important;
     }
 

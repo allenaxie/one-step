@@ -1,4 +1,7 @@
-<app-navigation-bar></app-navigation-bar>
 <main>
+  <app-navigation-bar
+    *ngIf="isNavbarVisible"
+    class="app-navigation-bar"
+  ></app-navigation-bar>
   <router-outlet></router-outlet>
 </main>
