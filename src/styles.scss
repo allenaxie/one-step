@@ -6,5 +6,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@import './styles/dark-theme.scss';
-@import './styles/light-theme.scss';
+@import 'styles/dark-theme.scss';
+@import 'styles/light-theme.scss';
+@import 'styles/fonts.scss';
+@import 'styles/color-filters.scss';
+@import 'styles/animations.scss';
