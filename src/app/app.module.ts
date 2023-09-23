@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { HomeModule } from './modules/home/home.module';
+import { LoginComponent } from './modules/auth/login/login.component';
 
 @NgModule({
   declarations: [AppComponent],
