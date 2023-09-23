@@ -1,21 +1,4 @@
 body.dark-theme {
-    .mat-toolbar {
-        // background-color: rgb(34, 33, 33) !important;
-        // background-color: transparent !important;
-        background-color: rgba(0,0,0,0) !important;
-        background: none;
-        color: #fff !important;
-    }
-
-    .icon-button {
-        transition: .15s ease-in-out;
-
-        &:hover {
-            border-bottom: 1px solid rgb(255, 255, 255);
-            transform: scale(1.25);
-        }
-    }
-
     .mat-icon {
         svg {
             g {

@@ -1,0 +1,36 @@
+body.dark-theme {
+    #app-navigation-bar {
+        .mat-toolbar {
+            background-color: rgba(0,0,0,0) !important;
+            background: none;
+            color: #fff !important;
+        }
+    
+        .icon-button {
+            transition: .15s ease-in-out;
+    
+            &:hover {
+                border-bottom: 1px solid rgb(255, 255, 255);
+                transform: scale(1.25);
+            }
+        }
+    }
+}
+
+body.light-theme {
+    #app-navigation-bar {
+        .mat-toolbar {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+    
+        .icon-button {
+            transition: .15s ease-in-out;
+    
+            &:hover {
+                border-bottom: 1px solid rgb(0, 0, 0);
+                transform: scale(1.25);
+            }
+        }
+    }
+}

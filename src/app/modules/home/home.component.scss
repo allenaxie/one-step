@@ -1,17 +1,38 @@
 @import '../../../styles/animations.scss';
 
-.header-avatar {
-    @include fadeIn;
-    animation-duration: 4s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-.home-title {
+#app-home {
+    .header-avatar {
+        @include fadeIn;
+        animation-duration: 4s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+    }
+    
+    .home-title {
         @include fadeIn;
         animation-duration: 7s;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
         animation-delay: .5s;
+    }
+    
+    .home-dashing-icon {
+        @include runningLeftToRight;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
 }
 
+body.dark-theme {
+    #app-home {
+        .home-enter-button {
+            &:hover {
+                & .home-dashing-icon {
+                    transition: .15s ease-in-out;
+                    border-bottom: 1px solid rgb(255, 255, 255) !important;
+                }
+            }
+        }
+    }
+}

@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       spacing: {
         "40%": "40%",
+        "50%": "50%",
+        "60%": "60%",
+        "70%": "70%",
       },
       fontFamily: {
         zcoolXiaoWei: ["ZCOOL_XiaoWei"],

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject, takeUntil } from 'rxjs';
 
 export enum Theme {
@@ -43,5 +43,22 @@ export class ThemeService {
       bodyClassList.remove(Theme.dark);
       localStorage.setItem('theme', Theme.light);
     }
+  }
+
+  setTheme(theme: Theme): void {
+    const bodyClassList = document.body.classList;
+    // set app theme
+    this.theme.next(theme);
+    // remove existing theme from body el
+    if (bodyClassList.contains(Theme.dark)) {
+      bodyClassList.remove(Theme.dark);
+    }
+    if (bodyClassList.contains(Theme.light)) {
+      bodyClassList.remove(Theme.light);
+    }
+    // add updated theme to body el
+    bodyClassList.add(theme);
+    // add updated theme to local storage
+    localStorage.setItem('theme', theme);
   }
 }

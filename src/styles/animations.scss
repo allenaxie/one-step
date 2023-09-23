@@ -10,3 +10,16 @@
 @mixin fadeIn {
     animation: fadeIn;
 }
+
+@keyframes runningLeftToRight {
+    0% {
+        transform: translate(-30px);
+    }
+    100% {
+        transform: translate(30px);
+    }
+}
+
+@mixin runningLeftToRight {
+    animation: runningLeftToRight;
+}

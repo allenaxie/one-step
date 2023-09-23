@@ -1,27 +1,18 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Theme, ThemeService } from 'src/config/theme.service';
 
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss'],
+  encapsulation: ViewEncapsulation.None, // used to access theme of body el
 })
 export class NavigationBarComponent implements OnInit {
   theme: Theme | null = Theme.dark;
 
-  constructor(
-    private themeService: ThemeService,
-    private cdRef: ChangeDetectorRef
-  ) {}
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {
-    this.themeService.setupTheme();
     this.themeService.theme.subscribe((theme) => {
       this.theme = theme;
     });

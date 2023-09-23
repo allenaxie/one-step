@@ -14,12 +14,15 @@ import { NavigationService } from 'src/config/navigation.service';
 export class AppComponent implements OnInit, OnDestroy {
   isNavbarVisible: boolean = false;
   navbarSub: Subscription;
+  theme: Theme | null = Theme.dark;
 
   constructor(
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private themeService: ThemeService
   ) {
+    this.themeService.setupTheme();
     this.setupIcons();
     this.navbarSub = this.navigationService.isNavigationBarVisible.subscribe(
       (value) => {

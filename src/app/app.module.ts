@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { CommonModule } from '@angular/common';
     CoreModule,
     MatIconModule,
     CommonModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
