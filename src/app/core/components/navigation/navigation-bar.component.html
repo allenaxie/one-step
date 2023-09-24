@@ -4,6 +4,7 @@
     <button
       class="icon-button mx-4 flex items-center"
       (click)="onToggleTheme()"
+      [matTooltip]="theme === 'light-theme' ? 'Dark' : 'Light'"
     >
       <ng-container>
         <mat-icon

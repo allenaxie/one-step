@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NavigationService } from 'src/config/navigation.service';
 import { Theme, ThemeService } from 'src/config/theme.service';
 
@@ -6,6 +6,7 @@ import { Theme, ThemeService } from 'src/config/theme.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
   constructor(

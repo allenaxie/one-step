@@ -1,0 +1,13 @@
+@import '../../../../styles/colors.scss';
+
+body.dark-theme {
+    #app-login {
+        background-color: $primary-black;
+    }
+}
+
+body.light-theme {
+    #app-login {
+        background-color: $primary-white;
+    }
+}
