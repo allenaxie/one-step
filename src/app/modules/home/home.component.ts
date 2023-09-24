@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { NavigationService } from 'src/config/navigation.service';
 import { Theme, ThemeService } from 'src/config/theme.service';
 
 @Component({
@@ -12,15 +13,15 @@ export class HomeComponent implements OnInit {
   constructor(
     private themeService: ThemeService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private navigationService: NavigationService
   ) {}
 
   ngOnInit(): void {
-    this.themeService.toggleTheme(Theme.dark);
+    this.navigationService.toggleNavigationbarVisibility(false);
   }
 
   onHandleEnter() {
-    console.log('clicked enter button');
     this.router.navigate(['login'], { relativeTo: this.route });
   }
 }

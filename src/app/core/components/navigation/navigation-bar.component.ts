@@ -8,7 +8,7 @@ import { Theme, ThemeService } from 'src/config/theme.service';
   encapsulation: ViewEncapsulation.None, // used to access theme of body el
 })
 export class NavigationBarComponent implements OnInit {
-  theme: Theme | null = Theme.dark;
+  theme: Theme | null = Theme.Dark;
 
   constructor(private themeService: ThemeService) {}
 

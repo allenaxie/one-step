@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Theme, ThemeService } from '../config/theme.service';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ThemeService } from '../config/theme.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ICONS } from 'src/config/icons';
-import { BehaviorSubject, Subject, Subscription, takeUntil } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { NavigationService } from 'src/config/navigation.service';
 
 @Component({
@@ -12,26 +12,27 @@ import { NavigationService } from 'src/config/navigation.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  isNavbarVisible: boolean = false;
-  navbarSub: Subscription;
-  theme: Theme | null = Theme.dark;
+  public isNavbarVisible!: boolean;
+  private navbarSub!: Subscription;
 
   constructor(
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
     private navigationService: NavigationService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private cdref: ChangeDetectorRef
   ) {
-    this.themeService.setupTheme();
     this.setupIcons();
+  }
+
+  ngOnInit(): void {
     this.navbarSub = this.navigationService.isNavigationBarVisible.subscribe(
       (value) => {
         this.isNavbarVisible = value;
+        this.cdref.detectChanges();
       }
     );
   }
-
-  ngOnInit(): void {}
 
   setupIcons(): void {
     for (const iconName in ICONS) {

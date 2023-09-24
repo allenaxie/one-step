@@ -1,63 +1,68 @@
-import { Injectable, NgZone } from '@angular/core';
-import { BehaviorSubject, takeUntil } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 export enum Theme {
-  light = 'light-theme',
-  dark = 'dark-theme',
+  Dark = 'dark-theme',
+  Light = 'light-theme',
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  theme = new BehaviorSubject<Theme>(Theme.dark);
+  theme = new BehaviorSubject<Theme>(Theme.Dark); // Initialize with a default theme
 
+  constructor() {
+    this.setupTheme();
+  }
+
+  /**
+   * Method to set up theme
+   */
   setupTheme(): void {
-    // if user has theme in local storage, use it
-    const localStorageTheme = localStorage.getItem('theme');
-    if (localStorageTheme === Theme.dark) {
-      this.theme.next(localStorageTheme);
+    // Check if the user has a theme in local storage
+    const localStorageTheme: string | null = localStorage.getItem('theme');
+
+    if (localStorageTheme) {
+      // If a theme is found in local storage, convert it to a Theme enum
+      const parsedTheme: Theme | null = this.parseTheme(localStorageTheme);
+      if (parsedTheme) {
+        this.theme.next(parsedTheme);
+      }
     }
 
-    // add theme to body element
+    // Add theme to the body element
     const bodyClassList = document.body.classList;
     bodyClassList.add(this.theme.getValue());
-    // save theme in local storage
+
+    // Save theme in local storage
     localStorage.setItem('theme', this.theme.getValue());
   }
 
-  toggleTheme(value?: Theme): void {
+  /**
+   * Method to toggle between light and dark themes
+   */
+  toggleTheme(): void {
     const currentTheme = this.theme.getValue();
-    const bodyClassList = document.body.classList;
-    // if a value is passed as argument, use it
-    if (value) {
-      // set app theme
-      this.theme.next(value);
-      // remove existing theme from body el
-      if (bodyClassList.contains(Theme.dark)) {
-        bodyClassList.remove(Theme.dark);
-      }
-      if (bodyClassList.contains(Theme.light)) {
-        bodyClassList.remove(Theme.light);
-      }
-      // add updated theme to body el
-      bodyClassList.add(value);
-      // add updated theme to local storage
-      localStorage.setItem('theme', value);
-    } else {
-      if (currentTheme === Theme.light) {
-        // set to dark theme
-        this.theme.next(Theme.dark);
-        bodyClassList.add(Theme.dark);
-        bodyClassList.remove(Theme.light);
-        localStorage.setItem('theme', Theme.dark);
-      } else {
-        // set to light theme
-        this.theme.next(Theme.light);
-        bodyClassList.add(Theme.light);
-        bodyClassList.remove(Theme.dark);
-        localStorage.setItem('theme', Theme.light);
-      }
+    const newTheme = currentTheme === Theme.Dark ? Theme.Light : Theme.Dark;
+    this.theme.next(newTheme);
+    document.body.classList.remove(currentTheme);
+    document.body.classList.add(newTheme);
+    localStorage.setItem('theme', newTheme);
+  }
+
+  /**
+   * Helper method to parse a string into a Theme enum
+   * @param themeString - theme as string type
+   * @returns theme as Theme enum
+   */
+  private parseTheme(themeString: string): Theme | null {
+    switch (themeString) {
+      case Theme.Dark:
+      case Theme.Light:
+        return themeString as Theme;
+      default:
+        return null; // Invalid theme string
     }
   }
 }

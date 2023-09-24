@@ -10,7 +10,6 @@ export class NavigationService {
   constructor() {}
 
   toggleNavigationbarVisibility(value?: boolean): void {
-    // if a value is passed as argument, use it
     if (value) {
       this.isNavigationBarVisible.next(value);
     } else {
