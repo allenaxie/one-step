@@ -1,0 +1,14 @@
+@import '../../../../styles/colors.scss';
+
+body.dark-theme {
+    #app-dashboard {
+        background-color: $primary-black;
+    }
+}
+
+body.light-theme {
+    #app-dashboard {
+        background-color: $primary-white;
+    }
+}
+

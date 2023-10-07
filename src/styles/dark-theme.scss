@@ -2,8 +2,12 @@ body.dark-theme {
     .mat-icon {
         svg {
             g {
-                fill: #fff !important;
+                fill: #fff;
             }
         }
+    }
+
+    span, p {
+        color: #fff;
     }
 }

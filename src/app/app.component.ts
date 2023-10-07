@@ -6,7 +6,6 @@ import { ICONS } from 'src/config/icons';
 import { Subscription } from 'rxjs';
 import { NavigationService } from 'src/config/navigation.service';
 import { AuthService } from 'src/config/auth.service';
-import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -21,9 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
     private navigationService: NavigationService,
-    private themeService: ThemeService,
-    private cdref: ChangeDetectorRef,
-    private authService: AuthService
+    private cdref: ChangeDetectorRef
   ) {
     this.setupIcons();
   }
@@ -35,13 +32,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.cdref.detectChanges();
       }
     );
-
-    this.authService.signInGoogle.subscribe(() => {
-      // Access secret variables
-      const googleClientId = environment.googleOAuth.clientId;
-      const googleClientSecret = environment.googleOAuth.clientSecret;
-      console.log('sign in with google');
-    });
   }
 
   setupIcons(): void {

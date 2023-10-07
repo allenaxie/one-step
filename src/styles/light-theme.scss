@@ -2,8 +2,12 @@ body.light-theme {
     .mat-icon {
         svg {
             g {
-                fill: #000 !important;
+                fill: #000;
             }
         }
+    }
+
+    span, p {
+        color: #000
     }
 }

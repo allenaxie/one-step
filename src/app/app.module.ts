@@ -10,7 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { HomeModule } from './modules/home/home.module';
-import { LoginComponent } from './modules/auth/login/login.component';
+import { AuthModule } from './modules/auth/auth.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,8 @@ import { LoginComponent } from './modules/auth/login/login.component';
     MatIconModule,
     CommonModule,
     HomeModule,
+    AuthModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

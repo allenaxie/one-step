@@ -1,5 +1,5 @@
 <mat-toolbar class="items-center w-full" id="app-navigation-bar">
-  <span class="grow">Sun Wu Kong 七十二变</span>
+  <a routerLink="/" class="grow">Sun Wu Kong 七十二变</a>
   <div class="action-btns-container flex justify-end mx-8">
     <button
       class="icon-button mx-4 flex items-center"
@@ -14,8 +14,19 @@
         ></mat-icon>
       </ng-container>
     </button>
-    <button class="icon-button mx-2 flex items-center">
+    <button
+      class="icon-button mx-2 flex items-center"
+      (click)="dashboardClick()"
+      matTooltip="Dashboard"
+    >
       <mat-icon svgIcon="monkey-king-serious-sad"> </mat-icon>
+    </button>
+    <button
+      class="icon-button mx-2 flex items-center"
+      *ngIf="user"
+      (click)="signOut()"
+    >
+      <mat-icon svgIcon="monkey-angry" matTooltip="Sign Out"> </mat-icon>
     </button>
   </div>
 </mat-toolbar>
