@@ -1,5 +1,5 @@
 <mat-toolbar class="items-center w-full" id="app-navigation-bar">
-  <a routerLink="/" class="grow">Sun Wu Kong 七十二变</a>
+  <a routerLink="/" class="grow">Wu Kong 七十二变</a>
   <div class="action-btns-container flex justify-end mx-8">
     <button
       class="icon-button mx-4 flex items-center"
@@ -16,6 +16,7 @@
     </button>
     <button
       class="icon-button mx-2 flex items-center"
+      *ngIf="user"
       (click)="dashboardClick()"
       matTooltip="Dashboard"
     >
