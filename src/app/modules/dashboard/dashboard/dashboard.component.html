@@ -1,9 +1,13 @@
-<div id="app-dashboard" class="h-screen py-16 px-8">
-  <p class="text-black text-3xl">Welcome to your personal dashboard!</p>
-  <span>{{ user?.email }}</span>
-  <span>{{ user?.name }}</span>
-  <div class="features-container">
-    <div>
+<div id="app-dashboard" class="h-screen py-24 px-16">
+  <p
+    class="text-black text-2xl font-noto_Serif_SC underline underline-offset-8"
+  >
+    {{ user?.name }}'s dashboard
+  </p>
+  <!-- <span>{{ user?.email }}</span>
+  <span>{{ user?.name }}</span> -->
+  <div class="features-container mt-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <app-feature-card
         *ngFor="let feature of features"
         [name]="feature"

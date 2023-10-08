@@ -33,6 +33,7 @@ module.exports = {
       },
       fontFamily: {
         zcoolXiaoWei: ["ZCOOL_XiaoWei"],
+        noto_Serif_SC: ["Noto_Serif_SC"],
       },
       transitionDelay: {
         1000: "1000ms",

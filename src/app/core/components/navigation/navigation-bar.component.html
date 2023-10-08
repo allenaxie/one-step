@@ -1,8 +1,8 @@
 <mat-toolbar class="items-center w-full" id="app-navigation-bar">
-  <a routerLink="/" class="grow">Wu Kong 七十二变</a>
-  <div class="action-btns-container flex justify-end mx-8">
+  <a routerLink="/" class="grow font-zcoolXiaoWei tracking-widest"> Wu Kong</a>
+  <div class="action-btns-container flex justify-end mx-8 gap-x-8">
     <button
-      class="icon-button mx-4 flex items-center"
+      class="icon-button flex items-center"
       (click)="onToggleTheme()"
       [matTooltip]="theme === 'light-theme' ? 'Dark' : 'Light'"
     >
@@ -15,7 +15,7 @@
       </ng-container>
     </button>
     <button
-      class="icon-button mx-2 flex items-center"
+      class="icon-button flex items-center"
       *ngIf="user"
       (click)="dashboardClick()"
       matTooltip="Dashboard"
@@ -23,7 +23,7 @@
       <mat-icon svgIcon="monkey-king-serious-sad"> </mat-icon>
     </button>
     <button
-      class="icon-button mx-2 flex items-center"
+      class="icon-button flex items-center"
       *ngIf="user"
       (click)="signOut()"
     >
