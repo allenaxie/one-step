@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { HomeModule } from './modules/home/home.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { ExpensesModule } from './modules/expenses/expenses.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     HomeModule,
     AuthModule,
     DashboardModule,
+    ExpensesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

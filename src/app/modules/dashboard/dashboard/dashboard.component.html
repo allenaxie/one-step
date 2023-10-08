@@ -8,10 +8,31 @@
   <span>{{ user?.name }}</span> -->
   <div class="features-container mt-16">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <app-feature-card
-        *ngFor="let feature of features"
-        [name]="feature"
-      ></app-feature-card>
+      <div
+        class="card-container w-72 h-36 relative border border-solid rounded border-amber-700 cursor-pointer"
+      >
+        <div
+          class="bg-[linear-gradient(to_top,rgba(15,15,15,0.8),rgba(55,55,55,0.4)),url('./assets/images/sun-wu-kong-2.jpeg')] bg-cover w-full h-full flex items-end p-4"
+          (click)="handleFeatureClick('expenses')"
+        >
+          <span class="text-2xl text-white font-zcoolXiaoWei"
+            >Track Expenses</span
+          >
+        </div>
+      </div>
+      <div
+        class="card-container w-72 h-36 relative border border-solid rounded border-amber-700 cursor-pointer"
+      >
+        <div
+          class="bg-[linear-gradient(to_top,rgba(15,15,15,0.8),rgba(55,55,55,0.4)),url('./assets/images/sun-wu-kong-2.jpeg')] bg-cover w-full h-full flex items-end p-4"
+          (click)="handleFeatureClick('assets')"
+        >
+          <span class="text-2xl text-white font-zcoolXiaoWei"
+            >Track Assets</span
+          >
+        </div>
+      </div>
     </div>
   </div>
+  <router-outlet></router-outlet>
 </div>
