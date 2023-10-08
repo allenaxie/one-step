@@ -27,7 +27,6 @@ export class DashboardComponent implements OnInit {
   }
 
   handleFeatureClick(featureName: string): void {
-    console.log(featureName);
     this.router.navigate([`${featureName}`]);
   }
 }

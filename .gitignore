@@ -37,6 +37,7 @@ yarn-error.log
 testem.log
 /typings
 src/config/config.ts
+src/app/modules/expenses/expenses/mock-pdf-data.ts
 
 # System files
 .DS_Store
