@@ -1,6 +1,8 @@
 body.dark-theme {
     #app-navigation-bar {
-        background-color: rgb(50, 50, 50) !important;
+        // background-color: rgb(50, 50, 50) !important;
+        background: linear-gradient(to bottom, #434343, #202020);
+
         color: #fff !important;
 
     }

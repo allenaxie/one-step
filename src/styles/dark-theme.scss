@@ -1,4 +1,9 @@
+@import '../styles/colors.scss';
+
 body.dark-theme {
+    background: linear-gradient(to right bottom, #434343, #202020);
+    
+
     .mat-icon {
         svg {
             g {

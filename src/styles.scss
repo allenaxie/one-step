@@ -4,7 +4,12 @@
 @tailwind utilities;
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    overflow-x: hidden;
+    box-sizing: content-box;
+}
 
 @import 'styles/dark-theme.scss';
 @import 'styles/light-theme.scss';

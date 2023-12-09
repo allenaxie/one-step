@@ -1,16 +1,38 @@
-<div id="app-expenses" class="h-screen py-24 px-16">
+<div id="app-expenses" class="pt-24 px-16 h-full overflow-x-hidden">
   <p class="text-2xl font-noto_Serif_SC underline underline-offset-8">
     Expenses
   </p>
   <button
     (click)="handleExtractText()"
     [disabled]="isFetching"
-    class="bg-white"
+    class="bg-white my-4 mr-4 rounded shadow shadow-slate-200 p-2"
   >
-    Extract text
+    <span class="font-bold text-lg !text-black"> Extract Text </span>
+  </button>
+  <button
+    (click)="handleUploadPDF()"
+    [disabled]="isPdfUploading"
+    class="bg-white my-4 mr-4 rounded shadow shadow-slate-200 p-2"
+  >
+    <span class="font-bold text-lg !text-black"> Upload PDF </span>
   </button>
   <span *ngIf="pdfData" class="text-white text-3xl">Data is available</span>
   <span *ngIf="isFetching" class="text-white text-3xl"
     >Loading.... Please wait.</span
   >
+  <div
+    id="adobe-dc-view"
+    class="h-screen-50 sm:h-[500px] w-full overflow-x-hidden"
+  ></div>
+
+  <!-- <table mat-table [dataSource]="pdfTableDataSource" class="mat-elevation-z8">
+   <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="pdfTableColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: pdfTableColumns"></tr>
+  </table> 
+   -->
 </div>
